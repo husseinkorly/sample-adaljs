@@ -7,10 +7,12 @@ export const environment = {
   production: false,
   authentication: true,
 
+  apiUrl: 'XXXX',
+
   adalConfig: {
     tenant: '',
     clientId: '',
-    redirectUri: 'http://localhost:4200',
+    redirectUri: '',
     endpoints: {
       uploadApi: ''
     },

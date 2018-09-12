@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 
 import * as AuthenticationContext from 'adal-angular';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
+import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class AuthService {
   private _config: any;
   private _context: AuthenticationContext;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this._config = environment.adalConfig;
     this._context = new AuthenticationContext(this._config);
   }

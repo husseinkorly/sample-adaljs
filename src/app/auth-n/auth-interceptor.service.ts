@@ -8,6 +8,7 @@ import {
 
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
@@ -17,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const reqUrl = this.authService.config.endpoints.uploadApi;
+    const reqUrl = environment.apiUrl;
     if (req.url === reqUrl) {
       return this.authService.acquireToken(reqUrl).mergeMap(token => {
         const request: HttpRequest<any> = req.clone({
