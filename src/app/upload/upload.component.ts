@@ -6,6 +6,7 @@ import { UploadEvent } from '@progress/kendo-angular-upload';
   selector: 'app-upload',
   template: `
   <kendo-upload [saveUrl]="uploadSaveUrl"
+  [autoUpload]="false"
   (upload)="uploadEventHandler($event)"
   (error)="errorEventHandler($event)">
   </kendo-upload>
